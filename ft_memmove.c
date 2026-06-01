@@ -14,31 +14,25 @@
 
 static void	copy_backward(void *dest, const void *src, size_t n)
 {
-	unsigned char	*reverse_dest;
-	unsigned char	*reverse_src;
+	unsigned char		*dest_aux;
+	const unsigned char	*src_aux;
 
-	reverse_dest = (unsigned char *)dest + (n - 1);
-	reverse_src = (unsigned char *)src + (n - 1);
+	dest_aux = (unsigned char *)dest;
+	src_aux = (const unsigned char *)src;
 	while (n > 0)
 	{
-		*reverse_dest = *reverse_src;
-		reverse_dest--;
-		reverse_src--;
 		n--;
+		dest_aux[n] = src_aux[n];
 	}
 }
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	if (!dest && !src)
-		return (NULL);
+		return (dest);
 	if (dest > src)
-	{
 		copy_backward(dest, src, n);
-	}
 	else
-	{
 		ft_memcpy(dest, src, n);
-	}
 	return (dest);
 }

@@ -14,19 +14,20 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*pointer;
+	unsigned char	*s_aux;
+	size_t			i;
 
-	pointer = (unsigned char *)s;
-	while (n > 0)
+	s_aux = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		*pointer = c;
-		pointer++;
-		n--;
+		s_aux[i] = (unsigned char)c;
+		i++;
 	}
 	return (s);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
@@ -45,3 +46,4 @@ int	main(void)
 	printf("buffer[5] = %c\n", buffer[5]);
 	return (0);
 }
+ */
