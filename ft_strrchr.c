@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhcosta- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/28 19:21:44 by jhcosta-          #+#    #+#             */
-/*   Updated: 2026/05/28 19:21:46 by jhcosta-         ###   ########.fr       */
+/*   Created: 2026/06/03 16:14:21 by jhcosta-          #+#    #+#             */
+/*   Updated: 2026/06/03 16:14:23 by jhcosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char		*dest_aux;
-	const unsigned char	*src_aux;
-	size_t				i;
+	size_t	i;
 
-	dest_aux = (unsigned char *)dest;
-	src_aux = (const unsigned char *)src;
-	if (!dest && !src)
-		return (dest);
-	i = 0;
-	while (i < n)
+	i = ft_strlen(s);
+	while (i > 0)
 	{
-		dest_aux[i] = src_aux[i];
-		i++;
+		if (s[i] == (unsigned char)c)
+		{
+			return ((char *)&s[i]);
+		}
+		i--;
 	}
-	return (dest);
+	if (s[0] == (unsigned char)c)
+	{
+		return ((char *)&s[0]);
+	}
+	return (NULL);
 }
+
+/* #include <stdio.h>
+int	main(void)
+{
+	char	*str;
+	char	*function;
+
+	str = "banana";
+	function = ft_strrchr(str, 'a');
+	printf("testando a função: %s\n", function);
+} */
