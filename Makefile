@@ -32,6 +32,8 @@ SRCS = ft_isalpha.c \
 	ft_strchr.c \
 	ft_strrchr.c \
 	ft_memchr \
+	ft_memcmp.c \
+	ft_strnstr.c
 
 OBJS = $(SRCS:.c=.o)
 
