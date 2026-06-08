@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhcosta- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/05 19:57:51 by jhcosta-          #+#    #+#             */
-/*   Updated: 2026/06/05 19:57:53 by jhcosta-         ###   ########.fr       */
+/*   Created: 2026/06/08 17:46:52 by jhcosta-          #+#    #+#             */
+/*   Updated: 2026/06/08 17:46:55 by jhcosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strdup(const char *s)
 {
-	size_t	total;
-	void	*ptr_aux;
+	size_t	len;
+	char	*copy;
 
-	if (size != 0 && nmemb > SIZE_MAX / size)
+	len = ft_strlen(s) + 1;
+	copy = malloc(len);
+	if (!copy)
 		return (NULL);
-	total = nmemb * size;
-	ptr_aux = malloc(total);
-	if (!ptr_aux)
-		return (NULL);
-	ft_bzero(ptr_aux, total);
-	return (ptr_aux);
+	ft_strlcpy(copy, s, len);
+	return (copy);
 }
