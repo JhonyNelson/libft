@@ -52,4 +52,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(new_str, s1 + start, new_str_len + 1);
 	return (new_str);
 }
-// s1 + start == &s1[start]
