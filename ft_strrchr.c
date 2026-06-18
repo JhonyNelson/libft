@@ -31,14 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-/* #include <stdio.h>
-int	main(void)
-{
-	char	*str;
-	char	*function;
-
-	str = "banana";
-	function = ft_strrchr(str, 'a');
-	printf("testando a função: %s\n", function);
-} */
